@@ -8,22 +8,17 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage {
 
 	WebDriver driver;
-	String mailID;
-	String pwd;
 
-	@FindBy(xpath = "//*[contains(text(),'Sign in')]")
-	WebElement signInBtn;
-	
-	@FindBy(xpath="(//*[contains(text(),'Use another account')])[2]")
-	WebElement useAnotherAccount;
+	@FindBy(xpath = "(//*[contains(text(),'Sign in')])[1]")
+	WebElement pageSignInBtn;
 
-	@FindBy(xpath = "//input[@type='email']")
+	@FindBy(xpath = "//input[@name='session_key']")
 	WebElement email;
 
-	@FindBy(xpath = "//span[contains(text(),'Next')]")
-	WebElement nextButon;
+	@FindBy(xpath = "(//*[contains(text(),'Sign in')])[3]")
+	WebElement signInBtn;
 
-	@FindBy(xpath = "//input[@type='password']")
+	@FindBy(xpath = "//input[@name='session_password']")
 	WebElement passwd;
 
 	public LoginPage(WebDriver driver) {
@@ -31,32 +26,15 @@ public class LoginPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void setEmail(String email) {
-		this.mailID = email;
-	}
-
-	public void setPassword(String password) {
-		this.pwd = password;
-	}
-
-	public void signIn() {
+	public void clickSignIn()
+	{
 		signInBtn.click();
 	}
-	
-	public void useAnotherAcc()
+	public void login(String username, String password)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 	{
-		useAnotherAccount.click();
-	}
-
-	public void clickNext() {
-		nextButon.click();
-	}
-
-	public void login(String username, String password) {
-		signIn();
-	//	useAnotherAcc();
 		email.sendKeys(username);
-		clickNext();
+		clickSignIn();
 		passwd.sendKeys(password);
 	}
-}
+}	
+

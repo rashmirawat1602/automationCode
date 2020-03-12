@@ -7,7 +7,11 @@
         <methods>
           <include name="Login"/>
           <include name="setup"/>
+          <include name="Login1"/>
+          <include name="setupExtentReport"/>
           <include name="tearDown"/>
+          <include name="getResult"/>
+          <include name="Login3"/>
         </methods>
       </class> <!-- com.pageFactoryDemo.loginTest.LoginTest -->
     </classes>
